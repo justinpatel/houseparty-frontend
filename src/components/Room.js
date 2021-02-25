@@ -77,7 +77,7 @@ export default class Room extends Component{
 
 
     getRoomDetails(){
-        fetch("/api/get-room?code=" + this.roomCode)
+        fetch("https://houseparty123.herokuapp.com/api/get-room?code=" + this.roomCode)
             .then((response) => {
                 if(!response.ok){
                     this.props.leaveRoomCallback();
@@ -99,14 +99,14 @@ export default class Room extends Component{
     }
 
     authenticateSpotify(){
-        fetch('/spotify/is-authenticated')
+        fetch('https://houseparty123.herokuapp.com/spotify/is-authenticated')
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
                     spotifyAuthenticated: data.status
                 });
                 if (!data.status){
-                    fetch('/spotify/get-auth-url')
+                    fetch('https://houseparty123.herokuapp.com/spotify/get-auth-url')
                         .then((response) => response.json())
                         .then((data) => {
                             window.location.replace(data.url);
@@ -116,7 +116,7 @@ export default class Room extends Component{
     }
 
     getCurrentSong(){
-        fetch('/spotify/current-song')
+        fetch('https://houseparty123.herokuapp.com/spotify/current-song')
             .then((response) => {
                 if(!response.ok){
                     return {};
@@ -137,7 +137,7 @@ export default class Room extends Component{
             headres: {"Content-Type":"application/json"},
         };
 
-        fetch('/api/leave-room', requestOptions)
+        fetch('https://houseparty123.herokuapp.com/api/leave-room', requestOptions)
             .then((response) => {
                 this.props.leaveRoomCallback();
                 this.props.history.push('/');

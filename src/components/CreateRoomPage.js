@@ -60,7 +60,7 @@ export default class CreateRoomPage extends Component{
             }),
         };
 
-        fetch("/api/create-room", requestoptions)
+        fetch("https://houseparty123.herokuapp.com/api/create-room", requestoptions)
             .then( (response) => response.json() )
             .then( (data) => this.props.history.push("/room/"+data.code));
     }
@@ -76,7 +76,7 @@ export default class CreateRoomPage extends Component{
             })
         };
 
-        fetch('/api/update-room',requestOptions)
+        fetch('https://houseparty123.herokuapp.com/api/update-room',requestOptions)
             .then( (response) => {
                 if (response.ok){
                     this.setState({

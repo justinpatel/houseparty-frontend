@@ -24,7 +24,7 @@ export default class MusicPlayer extends Component{
             header: {"Content-Type":"application/json"}
         };
 
-        fetch('spotify/next-song', requestOption);
+        fetch('https://houseparty123.herokuapp.com/spotify/next-song', requestOption);
     }
 
     pauseSong(){
@@ -33,7 +33,7 @@ export default class MusicPlayer extends Component{
             headers: {"Content-Type":"application/json"}
         };
 
-        fetch('/spotify/pause-song', requestOption);
+        fetch('https://houseparty123.herokuapp.com/spotify/pause-song', requestOption);
     }
 
     playSong(){
@@ -42,7 +42,7 @@ export default class MusicPlayer extends Component{
             headers: {"Content-Type":"application/json"}
         };
 
-        fetch('/spotify/play-song', requestOption);
+        fetch('https://houseparty123.herokuapp.com/spotify/play-song', requestOption);
     }
 
     render(){
